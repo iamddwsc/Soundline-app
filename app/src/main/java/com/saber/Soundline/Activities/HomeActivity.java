@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.saber.Soundline.Fragments.HomeFragment;
@@ -18,6 +22,8 @@ public class HomeActivity extends AppCompatActivity {
 
     private FragmentManager fragmentManager;
     private BottomNavigationView bottomNavigationView;
+    private ImageButton imgSetting;
+    private TextView txt_1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void init() {
         bottomNavigationView = findViewById(R.id.bottom_nav);
+        imgSetting = findViewById(R.id.setting);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -38,6 +45,7 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.item_home: {
                         Fragment frag_search = fragmentManager.findFragmentByTag(SearchFragment.class.getSimpleName());
                         Fragment frag_library = fragmentManager.findFragmentByTag(LibraryFragment.class.getSimpleName());
+                        imgSetting.setVisibility(View.VISIBLE);
                         if (frag_search != null) {
                             fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag(SearchFragment.class.getSimpleName())).commit();
                             fragmentManager.beginTransaction().show(fragmentManager.findFragmentByTag(HomeFragment.class.getSimpleName())).commit();
@@ -52,6 +60,7 @@ public class HomeActivity extends AppCompatActivity {
                         Fragment frag_search = fragmentManager.findFragmentByTag(SearchFragment.class.getSimpleName());
                         Fragment frag_library = fragmentManager.findFragmentByTag(LibraryFragment.class.getSimpleName());
                         fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag(HomeFragment.class.getSimpleName())).commit();
+                        imgSetting.setVisibility(View.GONE);
                         if (frag_search != null && frag_library != null) {
                             fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag(LibraryFragment.class.getSimpleName())).commit();
                             fragmentManager.beginTransaction().show(fragmentManager.findFragmentByTag(SearchFragment.class.getSimpleName())).commit();
@@ -68,7 +77,7 @@ public class HomeActivity extends AppCompatActivity {
                         Fragment frag_library = fragmentManager.findFragmentByTag(LibraryFragment.class.getSimpleName());
                         Fragment frag_home = fragmentManager.findFragmentByTag(HomeFragment.class.getSimpleName());
                         fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag(HomeFragment.class.getSimpleName())).commit();
-
+                        imgSetting.setVisibility(View.GONE);
                         if (frag_search != null && frag_library != null) {
                             fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag(SearchFragment.class.getSimpleName())).commit();
                             fragmentManager.beginTransaction().show(fragmentManager.findFragmentByTag(LibraryFragment.class.getSimpleName())).commit();

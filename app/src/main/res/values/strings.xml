@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Soundline</string>
+
+    <string name="com_spotify_sdk_redirect_scheme">abc</string>
+    <string name="com_spotify_sdk_redirect_host">localhost</string>
+    <string name="home">Home</string>
 </resources>

@@ -18,7 +18,18 @@
         android:clickable="false"
         android:focusable="false"
         android:id="@+id/coordinator">
-        
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_settings_36"
+            android:layout_gravity="top|right"
+            android:background="@android:color/transparent"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:outlineAmbientShadowColor="@android:color/transparent"
+            android:outlineSpotShadowColor="@android:color/transparent"
+            android:id="@+id/setting"/>
+
         <com.google.android.material.bottomappbar.BottomAppBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,7 +42,7 @@
             app:contentInsetStart="0dp"
             app:contentInsetStartWithNavigation="0dp"
             android:id="@+id/bottom_app">
-            
+
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -41,10 +52,9 @@
                 app:menu="@menu/menu_main"
                 android:outlineAmbientShadowColor="@android:color/transparent"
                 android:outlineSpotShadowColor="@android:color/transparent"/>
-            
+
         </com.google.android.material.bottomappbar.BottomAppBar>
 
-        
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </RelativeLayout>
